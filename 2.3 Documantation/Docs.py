@@ -642,7 +642,7 @@ class UI:
     f_name: str
     prof_name: str
 
-    def __init__(self, file_name: str = None):
+    def __init__(self, file_name: str = None, prof_name: str = None):
         """
         Инициализирует поля класса и создаёт объект UI
         :param file_name: Путь до CSV-файла.
@@ -651,7 +651,10 @@ class UI:
             self.f_name = file_name
         else:
             self.f_name = "../vacancies_medium.csv"
-        self.prof_name = 'Программист'
+        if prof_name is not None:
+            self.prof_name = prof_name
+        else:
+            self.prof_name = 'Программист'
 
 def parse_row_vacancy(header: list, row_vacs: list) -> dict:
     """Очищает строки от HTML-тегов и разбивает её на данные для вакансии.
